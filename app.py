@@ -1,8 +1,14 @@
 import streamlit as st
 import numpy as np
 import pickle
+from zipfile import ZipFile
 
 # Load the model
+dataset = './ipl_model.zip'
+with ZipFile(dataset,'r') as zip:
+  zip.extractall()
+  print('The dataset is extracted')
+
 model_filename = "ipl_model.pkl"
 loaded_model = pickle.load(open(model_filename, "rb"))
 
